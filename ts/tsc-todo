@@ -1,0 +1,2 @@
+set -x
+tsc todo.ts ; cp todo.js ../todo-ts.js

@@ -3,12 +3,17 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 /// <reference path="yui-test.d.ts" />
-
+ 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 // Posso adicionar métodos a interfaces padrão e depois prover a 
 // implementação com Polyfill escrito em JavaScript.
 interface Array {
     // shuffle: () => any; // posso usar assim: [1, 3, 2].shuffle();
+}
+
+interface String {
+    startsWith: Function;
+    endsWith: Function;
 }
 
 interface Engine {
@@ -61,7 +66,7 @@ interface YUI {
     Model: any
     ModelList: any
     ModelSync: YModelSync
-    View:any
+    View: any
 
     // Referencia para  Classes fora do CORE do YUI no namespace Y
     Handlebars: any

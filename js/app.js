@@ -32,6 +32,7 @@ YUI.add('todo-app', function(Y) {
 		// when new Todos are added, changed, or removed within it.
 		// Also, fetch any Todos that are found within localStorage.
 		initializer : function() {
+			console.log('Entrei no construtor da App. Versão original');
 			this.set('todoList', new TodoList());
 
 			var list = this.get('todoList');
