@@ -1,2 +1,6 @@
 set -x
-tsc todo.ts ; cp todo.js ../todo-ts.js
+tsc todo.ts 
+cp todo.js ../todo-ts.js
+cd .. 
+export GOOG_HOME=/usr/docs/closure-library
+java -jar $GOOG_HOME/compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS  --js todo-ts.js  --js_output_file todo-ts-min.js --externs 'yui3-closure-fixes.js'

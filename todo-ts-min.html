@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-framework="yui">
+<head>
+<meta charset="utf-8">
+<title>YUI • TodoMVC using TypeScript</title>
+<link rel="stylesheet" href="common/base.css">
+<style>
+body {
+  /* font-size: 10px; */
+}
+section > header > h1 {
+  /* font-size: 14px;*/
+}
+input#new-todo  {
+	/* width: 200px;*/
+}
+input.edit  {
+	/* width: 200px;*/
+}
+</style>
+</head>
+<body>
+	<script src="common/base.js"></script>
+	
+	<!--  script src="js/lib/yui.js"></script   -->
+	<script src="all-yui3.14.js"></script>
+	<script src="todo-ts-min.js"></script>
+	<script>
+		var myTodoApp = {};
+		YUI().use('todo-app', function(Y) {
+			console.log('Vou construir minha Aplicação. Versão TypeScript');
+			myTodoApp = new Y.TodoMVC.TodoApp();
+			console.log('Aplicação "' + myTodoApp.name + '" criada.');
+		});
+		todomvc.logObjProps('todomvc', todomvc);
+	</script>
+</body>
+</html>

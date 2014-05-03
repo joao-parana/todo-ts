@@ -11,7 +11,7 @@
 // via chamada do método YUI.use( ... );
 
 module todomvc {
-
+    "use strict";
     var TODO_MODULE_VERSION = '1.0.1'; // '@VERSION@';
     var TODO_LOCAL_STORAGE_KEY = 'all-todos-yui-ts';
 
@@ -23,7 +23,7 @@ module todomvc {
 
     function transverse(name: string, myObject: any, func?: Function) {
         var type = typeof (myObject);
-        var msg = '\n' + name + ' is ' + type;
+        var msg = '' + name + ' is ' + type;
         if (myObject instanceof Array) {
             msg += ' and one instance of Array '
             + 'class with length ' + myObject.length;
@@ -44,7 +44,7 @@ module todomvc {
                 } else {
                     txt = ' is ' + type;
                 }
-                console.log('\n' + name + '.' + prop + ' -> ' + txt);
+                console.log('' + name + '.' + prop + ' -> ' + txt);
             }
         }
     }
@@ -68,7 +68,6 @@ module todomvc {
             ''].join('');
 
         constructor(private Y: YUI, private engine: Engine) {
-            'use strict';
             var itemTemplate = this.ITEM_TEMPLATE;
             this.attrsDef = {};
             this.classDef = {
@@ -171,14 +170,13 @@ module todomvc {
 
 
     YUI.add('todo-view', function(Y) {
-        'use strict';
         var engine = Y.Handlebars;
         var view = new View(Y, engine);
         // -- Todo View -------------------
         var TodoViewModule = Y.Base.create('todoView', Y.View, [], view.getClassDef());
 
         // Set this View under our custom Y.TodoMVC namespace.
-        Y.namespace('TodoMVC').TodoView = TodoViewModule;
+        Y.namespace('TodoMVC')['TodoView'] = TodoViewModule;
     }, TODO_MODULE_VERSION, { requires: viewDependencies });
 
     // Definição do Model para Todo (elemento individual)
@@ -187,7 +185,6 @@ module todomvc {
         private classDef: {};
         private attrsDef: {};
         constructor(private Y: YUI) {
-            'use strict';
             this.attrsDef = {
                 // Default attributes.
                 ATTRS: {
@@ -222,15 +219,13 @@ module todomvc {
     var modelDependencies = ['gallery-model-sync-local', 'model'];
 
     YUI.add('todo', function(Y) {
-        'use strict';
-
         var todo = new Todo(Y);
         // -- Todo Model -------------
         var TodoModule = Y.Base.create('todo', Y.Model, [Y.ModelSync.Local],
             todo.getClassDef(), todo.getAttrsDef());
 
         // Set this Model under our custom Y.TodoMVC namespace.
-        Y.namespace('TodoMVC').Todo = TodoModule;
+        Y.namespace('TodoMVC')['Todo'] = TodoModule;
     }, TODO_MODULE_VERSION, { requires: modelDependencies });
 
 
@@ -267,8 +262,6 @@ module todomvc {
     var modelListDependencies = ['gallery-model-sync-local', 'model-list', 'todo'];
 
     YUI.add('todo-list', function(Y) {
-        'use strict';
-
         var todoList = new TodoList(Y);
 
         // -- TodoList Model list -----
@@ -276,7 +269,7 @@ module todomvc {
             todoList.getClassDef());
 
         // Set this Model List under our custom Y.TodoMVC namespace.
-        Y.namespace('TodoMVC').TodoList = TodoListModule;
+        Y.namespace('TodoMVC')['TodoList'] = TodoListModule;
 
     }, TODO_MODULE_VERSION, { requires: modelListDependencies });
 
@@ -327,7 +320,6 @@ module todomvc {
         private attrsDef: {};
         // templateEngine é Y.Handlebars
         constructor(private Y: YUI, templateEngine: Engine) {
-            'use strict';
             var myself = this;
             var doc = Y.config.doc;
             Y.one('body').append(this.BODY_TEMPLATE);
@@ -600,22 +592,17 @@ module todomvc {
     var appDependencies = ['app-base', 'todo-list', 'todo-view', 'node', 'handlebars'];
 
     YUI.add('todo-app', function(Y) {
-
-        'use strict';
-
         var engine = Y.Handlebars;
         var app = new App(Y, engine);
 
         // Dependencies from MVC namespace.
-        var TodoApp;
-        //var TodoList = Y.TodoMVC.TodoList;
-        //var TodoView = Y.TodoMVC.TodoView; 
+        var TodoApp; 
 
         // -- Main Application --------------
         TodoApp = Y.Base.create('todoApp', Y.App, [], app.getClassDef(), app.getAttrsDef());
 
         // Namespace this application under our custom Y.MVC namespace.
-        Y.namespace('TodoMVC').TodoApp = TodoApp;
+        Y.namespace('TodoMVC')['TodoApp'] = TodoApp;
     }, TODO_MODULE_VERSION, { requires: appDependencies });
 }
 
