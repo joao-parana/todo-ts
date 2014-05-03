@@ -1,0 +1,1 @@
+function b(a){this.addAttrs({charge:{value:-1,readOnly:!0},energy:{value:511,validator:function(a){return 511<=a}}},a)}YUI.add("electron",function(a){a.Electron=a.augment(b,a.Attribute)},"1.0",{requires:["attribute"]});

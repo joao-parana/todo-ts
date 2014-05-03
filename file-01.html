@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>YUI Attribute</title>
+<link href="aui2.0/aui-css/css/bootstrap.css" rel="stylesheet">
+<!-- Loader do AUI  -->
+<script charset="utf8" src="aui2.0/aui/aui.js"></script>
+<!-- meu código JS  -->
+<script class="app" charset="utf8" src="file-01-min.js"></script>
+<script>
+// handle 1
+function eletronF1(Y) {
+  // Crio o primeiro elétron
+  var e1 = new Y.Electron({
+    energy : 708.72,
+    charge : 2
+  });
+  console.log("e1's energy is " + e1.get('energy') + ' MeV.');
+  console.log("e1's charge is " + e1.get('charge'));
+
+  // Crio o segundo elétron
+  var e2 = new Y.Electron();
+  e2.on('energyChange', function(ev) {
+    console.log("Trying to change e2's energy to " + ev.newVal
+        + ' ...');
+  });
+  e2.after('energyChange', function(ev) {
+    console.log("e2's energy changed from " + ev.prevVal + ' to '
+        + ev.newVal);
+  });
+
+  // Altero atributos do segundo elétron
+  e2.set('energy', 400);
+  e2.set('energy', 1200);
+}
+
+YUI().use('electron', eletronF1);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

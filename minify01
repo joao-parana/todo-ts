@@ -1,0 +1,6 @@
+set -x
+export GOOG_HOME=/usr/docs/closure-library
+java -jar $GOOG_HOME/compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS  --js $2 $3 $4 $5 $6 $7 $8 $9  --js_output_file $1-min.js --externs 'yui3-closure-fixes.js'
+# --externs aui2.0/attribute-core/attribute-core.js
+# --externs aui2.0/attribute-base/attribute-base.js
+# --externs 'yui3-closure-fixes.js'
