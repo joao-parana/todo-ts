@@ -582,4 +582,18 @@ var todomvc;
         // Namespace this application under our custom Y.MVC namespace.
         Y.namespace('TodoMVC')['TodoApp'] = TodoApp;
     }, TODO_MODULE_VERSION, { requires: appDependencies });
+
+    function buildAndStart() {
+        // Este método deve ser invocado no arquivo HTML
+        var myTodoApp = null;
+        YUI().use('todo-app', function (Y) {
+            console.log('Vou construir minha Aplicação. Versão TypeScript');
+            myTodoApp = new Y.TodoMVC.TodoApp();
+            console.log('Aplicação "' + myTodoApp.name + '" criada.' + ' Use todomvc.appInstance para acessar o objeto ' + 'no namespace Y.TodoMVC');
+            todomvc.appInstance = myTodoApp;
+        });
+    }
+    todomvc.buildAndStart = buildAndStart;
+
+    todomvc.appInstance = null;
 })(todomvc || (todomvc = {}));

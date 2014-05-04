@@ -104,7 +104,8 @@ Y.Electron.prototype.after = function(eventName, callback) {
 Y.TodoMVC = {
 	Todo : {},
 	TodoList : {},
-	TodoView : {}
+	TodoView : {},
+	TodoApp : {}
 };
 
 var todomvc = {
@@ -318,3 +319,12 @@ var placeholder = {
 	completed : {},
 	remaining : {}
 };
+
+var todomvc = {
+	buildAndStart : function() {
+	},
+	appInstance : {}
+};
+
+var myTodoApp = {};
+

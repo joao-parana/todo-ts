@@ -105,7 +105,8 @@ declare module Y {
     interface TodoMVC {
         TodoView: any
         TodoList: any
-        Todo: any
+        Todo: any         
+        TodoApp : any
     }
     interface config {
         doc: Document

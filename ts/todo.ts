@@ -436,9 +436,9 @@ module todomvc {
                     list.after(['add', 'remove', 'reset', 'todo:completedChange'],
                         this.render, this);
 
-                     // O método render será invocado após o load devido a gestão 
+                    // O método render será invocado após o load devido a gestão 
                     // do Ciclo de Vida da Aplicação / View
-                    list.load(); 
+                    list.load();
 
                     // Keep our filters on refresh by immediately dispatching route.
                     this.once('ready', function() {
@@ -598,7 +598,7 @@ module todomvc {
         var app = new App(Y, engine);
 
         // Dependencies from MVC namespace.
-        var TodoApp; 
+        var TodoApp;
 
         // -- Main Application --------------
         TodoApp = Y.Base.create('todoApp', Y.App, [], app.getClassDef(), app.getAttrsDef());
@@ -606,5 +606,21 @@ module todomvc {
         // Namespace this application under our custom Y.MVC namespace.
         Y.namespace('TodoMVC')['TodoApp'] = TodoApp;
     }, TODO_MODULE_VERSION, { requires: appDependencies });
+
+    export function buildAndStart() { 
+        // Este método deve ser invocado no arquivo HTML  
+        var myTodoApp = null;
+        YUI().use('todo-app', function(Y) {
+            console.log('Vou construir minha Aplicação. Versão TypeScript');
+            myTodoApp = new Y.TodoMVC.TodoApp();
+            console.log('Aplicação "' + myTodoApp.name + '" criada.' 
+                + ' Use todomvc.appInstance para acessar o objeto '
+                + 'no namespace Y.TodoMVC');
+            appInstance = myTodoApp; 
+        });
+    }
+    
+    export var appInstance = null;
 }
+
 
