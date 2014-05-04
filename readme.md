@@ -3,7 +3,7 @@
 > In Typescript file **todo.ts** we need to export only buildAndStart () and appInstance used respectively to create and launch the application / access after creation. The application implementation is added to the NameSpace YUI3 by call YUI.add (...) method; and is available to be used by the called method YUI.use (...); 
 > Note that the builders get the instance of YUI object provided by the script available at: "http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"
 
-### YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
+##### YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
 
 > _[YUI - yuilibrary.com](http://yuilibrary.com)_
 
