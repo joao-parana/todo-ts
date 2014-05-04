@@ -390,22 +390,22 @@ var todomvc;
                 // Compile statistics template with Handlebars.
                 template: templateEngine.compile(statsTemplate),
                 // DOM events for creating new Todos and clearing out old ones.
-                events: {
+                'events': {
                     '#new-todo': {
-                        keypress: 'enterCreate'
+                        'keypress': 'enterCreate'
                     },
                     '#clear-completed': {
-                        click: 'clearCompleted'
+                        'click': 'clearCompleted'
                     },
                     '#toggle-all': {
-                        click: 'completeAll'
+                        'click': 'completeAll'
                     }
                 },
                 // Initialize our TodoList, and bind any events that occur
                 // when new Todos are added, changed, or removed within it.
                 // Also, fetch any Todos that are found within localStorage.
                 initializer: function () {
-                    // console.log('Entrei no construtor da App');
+                    console.log('Entrei no construtor da App');
                     this.set('todoList', {});
                     this.set('todoList', new Y.TodoMVC.TodoList());
 
@@ -417,6 +417,8 @@ var todomvc;
 
                     list.after(['add', 'remove', 'reset', 'todo:completedChange'], this.render, this);
 
+                    // O método render será invocado após o load devido a gestão
+                    // do Ciclo de Vida da Aplicação / View
                     list.load();
 
                     // Keep our filters on refresh by immediately dispatching route.
@@ -429,6 +431,7 @@ var todomvc;
                 // Render our application with the statistics from our TodoList,
                 // and various other stylistic elements.
                 render: function () {
+                    console.log('vou renderizar a Aplicação');
                     var todoList = this.get('todoList');
                     var completed = todoList.completed().size();
                     var remaining = todoList.remaining().size();
@@ -498,7 +501,7 @@ var todomvc;
                 },
                 // Create and save a new Todo from the inputted value when the
                 // Enter key is pressed down.
-                enterCreate: function (e) {
+                'enterCreate': function (e) {
                     var ENTER_KEY = 13;
                     var todoList = this.get('todoList');
                     var inputNode = this.get('inputNode');
