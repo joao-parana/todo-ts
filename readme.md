@@ -1,15 +1,11 @@
 # YUI TodoMVC Example
 
-> You need to export only buildAndStart () and appInstance used respectively to create and launch the application / access after creation. The application implementation is added to the NameSpace YUI3 by call YUI.add (...) method; and is available to be used by the called method YUI.use (...); 
+> In Typescript todo.ts we need to export only buildAndStart () and appInstance used respectively to create and launch the application / access after creation. The application implementation is added to the NameSpace YUI3 by call YUI.add (...) method; and is available to be used by the called method YUI.use (...); 
 > Note that the builders get the instance of YUI object provided by the script available at: "http://yui.yahooapis.com/3.16.0/build/yui/yui-min.js"
 
-
-
-> YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
-
+### YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
 
 > _[YUI - yuilibrary.com](http://yuilibrary.com)_
-
 
 ## Learning YUI
 
@@ -34,3 +30,15 @@ Get help from other YUI users:
 
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know](https://github.com/joao-parana/todo-ts/issues)._
 
+
+## Build all .js files (full, minified, gziped)
+
+    cd ts
+    tsc todo.ts
+    cp todo.js ../todo-ts.js
+    cd ..
+    # usando o Closure Compiler
+    export GOOG_HOME=/usr/docs/closure-library
+    java -jar $GOOG_HOME/compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS --js todo-ts.js --js_output_file todo-ts-min.js --externs yui3-closure-fixes.js
+    gzip -9 -c todo-ts-min.js > todo-ts-min.js.gz
+ 
