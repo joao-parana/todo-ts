@@ -340,7 +340,7 @@ module todomvc {
                         'value': null,
                         'validator': function(v) {
                             if (v != null && v.name && v.name == 'todoList') {
-                                console.log('Objeto todoList válido.');
+                                // console.log('Objeto todoList válido.');
                                 return true;
                             }
                             return false;
@@ -424,8 +424,7 @@ module todomvc {
                 // when new Todos are added, changed, or removed within it.
                 // Also, fetch any Todos that are found within localStorage.
                 initializer: function() {
-                    console.log('Entrei no construtor da App');
-                    this.set('todoList', {});
+                    // console.log('Entrei no construtor da App');
                     this.set('todoList', new Y.TodoMVC.TodoList());
 
                     var list = this.get('todoList');
@@ -452,7 +451,7 @@ module todomvc {
                 // Render our application with the statistics from our TodoList,
                 // and various other stylistic elements.
                 render: function() {
-                    console.log('vou renderizar a Aplicação');
+                    // console.log('vou renderizar a Aplicação');
                     var todoList = this.get('todoList');
                     var completed = todoList.completed().size();
                     var remaining = todoList.remaining().size();
@@ -527,7 +526,7 @@ module todomvc {
 
                 // Create and save a new Todo from the inputted value when the
                 // Enter key is pressed down.
-                'enterCreate': function(e) {
+                enterCreate: function(e) {
                     var ENTER_KEY = 13;
                     var todoList = this.get('todoList');
                     var inputNode = this.get('inputNode');

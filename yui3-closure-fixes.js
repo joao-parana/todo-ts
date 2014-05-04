@@ -32,7 +32,8 @@ Y.setHTML = function() {
 };
 Y.setContent = function() {
 };
-Y.each = function(n,i,c) {};
+Y.each = function(n, i, c) {
+};
 
 /* Tell compiler to not rename YUI3 Attribute class methods addAttrs, addAttr */
 Y.Attribute = function() {
@@ -65,6 +66,15 @@ var appMethods = {
 	hasRoute : {},
 	getPath : {},
 	dispatch : {}
+};
+
+// Parâmetros processados pelo Router da App
+var appParms = {
+	request : {
+		params : {
+			filter : {}
+		}
+	}
 };
 
 Y.config = {
@@ -210,6 +220,80 @@ var appAttrAndEvents = {
 	},
 	appInstance : {
 		value : {}
+	},
+	ATTRS : {
+		todoList : {
+			value : {},
+			validator : function(v) {
+			},
+			valueFn : function() {
+			}
+		},
+		container : {
+			valueFn : function() {
+			}
+		},
+		inputNode : {
+			valueFn : function() {
+			}
+		},
+		allCheckbox : {
+			valueFn : function() {
+			}
+		},
+		main : {
+			valueFn : function() {
+			}
+		},
+		footer : {
+			valueFn : function() {
+			}
+		},
+		serverRouting : {
+			value : {}
+		},
+
+		// Our initial filter for the application.
+		filter : {
+			value : null
+		},
+
+		// Routing for the application, to determine the filter.
+		// The callback takes a request object, Express-style.
+		routes : {
+			value : [ {
+				path : '/:filter',
+				callback : 'handleFilter'
+			} ]
+		},
+		appInstance : {
+			value : {}
+		}
+	},
+	classDef : {
+		// Set container to bind to the existing '#todoapp' element
+		containerTemplate : '',
+		template : {},
+		events : {
+			'#selectorid' : {
+				keypress : '',
+				click : ''
+			}
+		},
+		initializer : function() {
+		},
+		render : function() {
+		},
+		addViews : function() {
+		},
+		enterCreate : function(e) {
+		},
+		clearCompleted : function() {
+		},
+		completeAll : function() {
+		},
+		handleFilter : function(req) {
+		}
 	}
 };
 /* Tell compiler to not rename attributes and methods from Handlebars */
@@ -226,3 +310,5 @@ var placeholder = {
 	completed : {},
 	remaining : {}
 };
+
+
