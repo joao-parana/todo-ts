@@ -5,6 +5,7 @@
 
 ##### See the HTML file below
 
+```xml
     <!doctype html>
     <html lang="en" data-framework="yui">
     <head>
@@ -20,6 +21,7 @@
 	    </script>
     </body>
     </html>
+```
 
 ##### YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
 
