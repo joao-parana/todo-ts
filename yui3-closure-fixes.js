@@ -49,6 +49,14 @@ Y.Node.prototype.addClass = function(text) {
 Y.Node.prototype.hasClass = function(text) {
 };
 
+// Methods for Node object
+var node = {
+	show : function(flag) {
+	},
+	hide : function(flag) {
+	}
+};
+
 Y.Handlebars = {};
 Y.Base = {
 	create : {}
@@ -310,5 +318,3 @@ var placeholder = {
 	completed : {},
 	remaining : {}
 };
-
-
