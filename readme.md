@@ -45,7 +45,9 @@ Get help from other YUI users:
 * [Forms](http://yuilibrary.com/forum)
 * [YUI on Twitter](http://twitter.com/yuilibrary)
 
-> If you want to use the Bootstrap library for easy layout you can donwload [AlloyUI](http://alloyui.com/versions/2.0.x/) that already includes the YUI 3 and Bootstrap 2.3.2 and have many cool widgets.
+### AlloyUI = YUI + Bootstrap 
+
+> If you want to use the Bootstrap library for **easy layout** you can donwload [AlloyUI](http://alloyui.com/versions/2.0.x/) that already includes the YUI 3 and Bootstrap 2.3.2 and have many cool widgets.
 
 
 _If you have other helpful links to share, or find any of the links above no longer work, please [let us know](https://github.com/joao-parana/todo-ts/issues)._
