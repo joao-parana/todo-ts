@@ -599,7 +599,7 @@ module todomvc {
 
         // Dependencies from MVC namespace.
         var TodoApp;
-
+ 
         // -- Main Application --------------
         TodoApp = Y.Base.create('todoApp', Y.App, [], app.getClassDef(), app.getAttrsDef());
 
@@ -607,19 +607,19 @@ module todomvc {
         Y.namespace('TodoMVC')['TodoApp'] = TodoApp;
     }, TODO_MODULE_VERSION, { requires: appDependencies });
 
-    export function buildAndStart() { 
+    export function buildAndStart() {
         // Este método deve ser invocado no arquivo HTML  
         var myTodoApp = null;
         YUI().use('todo-app', function(Y) {
             console.log('Vou construir minha Aplicação. Versão TypeScript');
             myTodoApp = new Y.TodoMVC.TodoApp();
-            console.log('Aplicação "' + myTodoApp.name + '" criada.' 
+            console.log('Aplicação "' + myTodoApp.name + '" criada.'
                 + ' Use todomvc.appInstance para acessar o objeto '
                 + 'no namespace Y.TodoMVC');
-            appInstance = myTodoApp; 
+            appInstance = myTodoApp;
         });
     }
-    
+
     export var appInstance = null;
 }
 

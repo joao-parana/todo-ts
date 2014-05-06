@@ -3,7 +3,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 /// <reference path="yui-test.d.ts" />
- 
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 // Posso adicionar métodos a interfaces padrão e depois prover a 
 // implementação com Polyfill escrito em JavaScript.
@@ -14,6 +14,7 @@ interface Array {
 interface String {
     startsWith: Function;
     endsWith: Function;
+    format: Function;
 }
 
 interface Engine {
@@ -93,6 +94,7 @@ interface YUI {
     // Referencia para Minhas Classes no namespace Y
     Electron: any
     TodoMVC: Y.TodoMVC
+    CommentMVC: Y.CommentMVC
 }
 
 declare module Y {
@@ -105,12 +107,21 @@ declare module Y {
     interface TodoMVC {
         TodoView: any
         TodoList: any
-        Todo: any         
-        TodoApp : any
+        Todo: {}
+        TodoApp: any
     }
+
+    interface CommentMVC {
+        Comment: any
+        CommentView: any
+        CommentList: any
+        CommentApp: any
+    }
+
     interface config {
         doc: Document
     }
+
     interface Node {
         one(seletor: string): Y.Node
         one(frag: DocumentFragment): Y.Node

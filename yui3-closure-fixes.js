@@ -108,6 +108,13 @@ Y.TodoMVC = {
 	TodoApp : {}
 };
 
+Y.CommentMVC = {
+	Comment : {},
+	CommentList : {},
+	CommentView : {},
+	CommentApp : {}
+};
+
 var todomvc = {
 	logObjProps : function() {
 	}
@@ -320,6 +327,12 @@ var placeholder = {
 	remaining : {}
 };
 
+var comments = {
+	buildAndStart : function() {
+	},
+	appInstance : {}
+};
+
 var todomvc = {
 	buildAndStart : function() {
 	},
@@ -327,4 +340,3 @@ var todomvc = {
 };
 
 var myTodoApp = {};
-

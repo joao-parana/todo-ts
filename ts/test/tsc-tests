@@ -1,0 +1,7 @@
+set -x
+tsc comment.ts 
+cp comment.js ../comment-ts.js
+cd .. 
+export GOOG_HOME=/usr/docs/closure-library
+java -jar $GOOG_HOME/compiler.jar --compilation_level ADVANCED_OPTIMIZATIONS  --js comment-ts.js  --js_output_file comment-ts-min.js --externs 'yui3-closure-fixes.js'
+gzip -9 -c comment-ts-min.js > comment-ts-min.js.gz
