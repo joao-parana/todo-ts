@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>Angular JS com Bootstrap -</title>
+<link href="aui2.0/aui-css/css/bootstrap.css" rel="stylesheet">
+<!-- Loader do AUI  -->
+<script charset="utf8" src="aui2.0/aui/aui.js"></script>
+<!-- meu código JS  -->
+<script class="app" charset="utf8" src="ang-01-min.js"></script>
+</head>
+<body
+	ng-init="customers=[ { name: 'Joe', city: 'Rio' }, { name: 'Zoe', city: 'Rio' }, { name: 'Ted', city: 'Rio' } ]">
+	<div id="mydoc">
+		Search: <input type="text" ng-model="searchText"> <span>{{ searchText }}</span>
+		<div>
+			<ul>
+				<li ng-repeat="cust in customers | filter:searchText">{{ cust.city }} : {{ cust.name }}</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var myDocDivElement = document.getElementById('mydoc');
+	</script>
+
+	<script type="text/javascript" src="assets/js/angular.min.js"></script>
+	<script type="text/javascript" src="assets/js/angular-route.min.js"></script>
+	<script type="text/javascript" src="assets/js/angular-animation.min.js"></script>
+</body>
+</html>

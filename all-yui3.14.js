@@ -16458,7 +16458,8 @@ YUI.add("gallery-model-sync-local", function(b) {
 }, "gallery-2012.08.29-20-10", {
     requires: ["model", "model-list", "io-base", "json-stringify"],
     skinnable: false
-}); /*
+});
+/*
 YUI 3.14.1 (build 63049cb)
 Copyright 2013 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
